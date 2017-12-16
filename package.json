@@ -1,0 +1,13 @@
+{
+  "name": "tctool",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "tsc": "node_modules/.bin/tsc --p tsconfig.json",
+    "start": "npm run tsc && node dist/main.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.6.2"
+  }
+}
