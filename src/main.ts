@@ -1,8 +1,19 @@
+import { cfg } from './config'
+import * as net from 'net'
+import * as crypto from 'crypto'
+import * as stream from 'stream'
 
-function greeter(name: string) {
-  return `Hello ${name}`
-}
 
-const myname = 'psw'
+const client = net.createConnection({ host: cfg.host, port: cfg.port }, () => {
+  console.log('connected!')
+  client.end()
+})
 
-console.log(greeter(myname))
+client.on('end', () => {
+  console.log('connection end')
+})
+
+client.on('close', (hadError) => {
+  console.log('close')
+  console.log(hadError)
+})

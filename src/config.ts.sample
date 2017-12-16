@@ -1,0 +1,9 @@
+export const cfg: any = {}
+
+cfg.clientPublicKeyPem = ''
+
+cfg.username = ''
+cfg.password = ''
+
+cfg.host = 'www.topcoder.com'
+cfg.port = 5001
