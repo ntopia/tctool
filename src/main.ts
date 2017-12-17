@@ -1,4 +1,5 @@
 import { cfg } from './config'
+import * as putil from './packetUtil'
 import * as net from 'net'
 import * as crypto from 'crypto'
 import * as stream from 'stream'
@@ -40,8 +41,12 @@ const segmentize = new stream.Transform({
   }
 })
 
-segmentize.on('data', (data) => {
+segmentize.on('data', (data: Buffer) => {
   console.log('data in...')
+
+  putil.initBuffer(data)
+  const obj = putil.deserialize()
+  console.log(JSON.stringify(obj))
 })
 
 client.pipe(segmentize)
